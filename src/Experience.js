@@ -29,8 +29,8 @@ export default function Experience() {
     };
 
     const getItemStyle = (item, category) => {
-        const positive = { opacity: 1, backgroundColor: '#007200' };
-        const negative = { opacity: 0.2, backgroundColor: 'gray' }
+        const positive = { opacity: 1, backgroundColor: '#007200', transition: 'background-color 0.5s ease, opacity 0.5s ease' };
+        const negative = { opacity: 0.2, backgroundColor: 'gray', transition: 'background-color 0.5s ease, opacity 0.5s ease' };
         if (!selectedProject || selectedProject[category].includes(item))
             return positive;
         return negative;
@@ -41,7 +41,7 @@ export default function Experience() {
             <div className="left-column">
                 {projects.map((project, index) => (
                     <div key={index} className="project-item" 
-                    style={{ opacity: selectedProject && selectedProject.name !== project.name ? 0.2 : 1 }} 
+                    style={{ opacity: selectedProject && selectedProject.name !== project.name ? 0.2 : 1, transition: 'opacity 0.5s ease' }} 
                     onClick={() => handleProjectClick(project)}>
                         <h3>{project.name}</h3>
                         <p className='small-font'>{project.description}</p>
