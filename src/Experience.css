@@ -1,0 +1,44 @@
+.experience-container {
+    display: flex;
+    flex-direction: row;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.project-item {
+    margin-bottom: 20px;
+}
+
+.left-column {
+    flex: 2;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.right-column {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.languages-section, .frameworks-section, .skills-section {
+    margin-bottom: 15px;
+}
+
+.list-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.list-item {
+    background-color: #007200;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.small-font {
+    font-size: 0.5em;
+}
