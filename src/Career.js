@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Career.css';
 
-export default function Career({ navbarHeight }) {
+export default function Career() {
     const careerItems = [
         { startDate: '2022-05-01', name: 'VISA', position: 'Software Engineer', description: 'Worked on various projects including web applications and APIs.' },
         { startDate: '2021-09-01', name: 'SAMSUNG', position: 'Junior Developer', description: 'Assisted in developing and testing frontend components.' },
@@ -12,7 +12,6 @@ export default function Career({ navbarHeight }) {
 
     const sortedItems = careerItems.sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
     const [activeIndex, setActiveIndex] = useState(0);
-    const [containerHeight, setContainerHeight] = useState('100vh');
     const containerRef = useRef(null);
 
     const handleScroll = () => {
@@ -32,16 +31,6 @@ export default function Career({ navbarHeight }) {
     };
 
     useEffect(() => {
-        const availableHeight = window.innerHeight - navbarHeight;
-        setContainerHeight(`${availableHeight}px`);
-
-        const handleResize = () => setContainerHeight(`${window.innerHeight - navbarHeight}px`);
-        window.addEventListener('resize', handleResize);
-
-        return () => window.removeEventListener('resize', handleResize);
-    }, [navbarHeight]);
-
-    useEffect(() => {
         const container = containerRef.current;
         container.addEventListener('scroll', handleScroll);
         return () => container.removeEventListener('scroll', handleScroll);
@@ -49,7 +38,7 @@ export default function Career({ navbarHeight }) {
 
     return (
         <div className="career-container">
-            <div ref={containerRef} className="career-list-container" style={{ maxHeight: containerHeight }}>
+            <div ref={containerRef} className="career-list-container">
                 <div className="career-padding-height"></div>
 
                 {sortedItems.map((item, index) => (
