@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom';
 
 import Home from './Home';
@@ -32,6 +32,7 @@ function App() {
         <div className="App-content" style={{ flex: 1, overflow: 'hidden' }}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/career" element={<Career />} />
             <Route path="/career" element={<Career />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/education" element={<Education />} />
