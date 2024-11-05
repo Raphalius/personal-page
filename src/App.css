@@ -2,6 +2,40 @@
   text-align: center;
 }
 
+.App-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #081d06;
+  padding: 10px;
+}
+
+.Nav-logo {
+  margin-right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.Tab-container {
+  display: flex;
+  gap: 20px;
+}
+
+.App-tab {
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.App-tab:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -9,13 +43,12 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 5s linear;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App-content {
+  background-color: #000000;
   display: flex;
   flex-direction: column;
   align-items: center;
