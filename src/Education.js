@@ -1,5 +1,4 @@
-import React, { useState, useRef } from "react";
-import { useScrollHighlight } from "./Utils";
+import React, { useState, useRef, useEffect } from "react";
 import './Education.css';
 
 export default function Education() {
@@ -13,16 +12,41 @@ export default function Education() {
     const sortedItems = educationItems.sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
     const [activeIndex, setActiveIndex] = useState(0);
     const containerRef = useRef(null);
+    const itemRefs = useRef([]);
 
-    useScrollHighlight(containerRef, setActiveIndex);
+    useEffect(() => {
+        const observerOptions = {
+            root: containerRef.current,
+            threshold: 0.5, // Trigger when 50% of the item is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const index = itemRefs.current.indexOf(entry.target);
+                    setActiveIndex(index);
+                }
+            });
+        }, observerOptions);
+
+        itemRefs.current.forEach(item => {
+            if (item) observer.observe(item);
+        });
+
+        return () => {
+            itemRefs.current.forEach(item => {
+                if (item) observer.unobserve(item);
+            });
+        };
+    }, []);
 
     return (
         <div className="education-container">
             <div ref={containerRef} className="education-list-container">
-
                 {sortedItems.map((item, index) => (
                     <div
                         key={index}
+                        ref={el => itemRefs.current[index] = el}
                         className={`education-item ${index === activeIndex ? 'active' : 'inactive'}`}
                     >
                         <div className="education-details">
