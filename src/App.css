@@ -9,6 +9,7 @@
   align-items: center;
   background: linear-gradient(to bottom, #0d340a, rgba(0, 0, 0, 0));
   padding: 10px;
+  margin-left: -35px;
 }
 
 .Nav-logo {
