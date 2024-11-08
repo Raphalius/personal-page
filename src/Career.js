@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
+import { useScrollHighlight } from './Utils';
 import './Career.css';
 
 export default function Career() {
@@ -14,27 +15,8 @@ export default function Career() {
     const [activeIndex, setActiveIndex] = useState(0);
     const containerRef = useRef(null);
 
-    const handleScroll = () => {
-        if (containerRef.current) {
-            const items = containerRef.current.children;
-            let newActiveIndex = 0;
 
-            for (let i = 0; i < items.length; i++) {
-                const rect = items[i].getBoundingClientRect();
-                if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
-                    newActiveIndex = i;
-                    break;
-                }
-            }
-            setActiveIndex(newActiveIndex);
-        }
-    };
-
-    useEffect(() => {
-        const container = containerRef.current;
-        container.addEventListener('scroll', handleScroll);
-        return () => container.removeEventListener('scroll', handleScroll);
-    }, []);
+    useScrollHighlight(containerRef, setActiveIndex);
 
     return (
         <div className="career-container">
@@ -61,7 +43,7 @@ export default function Career() {
                         </div>
                     </div>
                 ))}
-                <div className="career-padding-height"></div>
+                <div className="career-padding-height-bottom"></div>
             </div>
         </div>
     );
