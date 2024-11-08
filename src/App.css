@@ -27,14 +27,15 @@
 .App-tab {
   color: white;
   padding: 10px 20px;
+  border-radius: 20px;
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s;
 }
 
 .App-tab:hover {
-  background-color: #555;
-  border-radius: 5px;
+  background-color: #0f9705ac;
+  border-radius: 20px;
 }
 
 .App-logo {
