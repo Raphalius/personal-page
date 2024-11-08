@@ -12,18 +12,17 @@
 }
 
 .career-padding-height {
-    height: calc(100vh / 2);
+    height: calc(100vh / 2.2);
 }
 
 .career-padding-height-bottom {
-    height: calc(100vh / 3);
+    height: calc(100vh / 3.4);
 }
 
 .career-item {
     display: flex;
     align-items: center;
     margin-bottom: 20vh;
-    scroll-snap-align: center;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
