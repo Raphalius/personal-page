@@ -1,12 +1,13 @@
 .App {
   text-align: center;
+  background-color: #081d06;
 }
 
 .App-nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #081d06;
+  background: linear-gradient(to bottom, #0d340a, rgba(0, 0, 0, 0));
   padding: 10px;
 }
 
@@ -48,7 +49,7 @@
 }
 
 .App-content {
-  background-color: #000000;
+  background: linear-gradient(to bottom, #081d06, black 50%, #081d06);
   display: flex;
   flex-direction: column;
   align-items: center;
