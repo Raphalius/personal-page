@@ -10,8 +10,12 @@
 }
 
 .left-column {
+    max-height: 100vh;
     flex: 2;
-    padding: 20px;
+    padding-left: 10vw;
+    padding-right: 20vw;
+    padding-top: 20vh;
+    padding-bottom: 30vh;
     overflow-y: auto;
 }
 
@@ -21,7 +25,9 @@
     overflow-y: auto;
 }
 
-.languages-section, .frameworks-section, .skills-section {
+.languages-section,
+.frameworks-section,
+.skills-section {
     margin-bottom: 15px;
 }
 
