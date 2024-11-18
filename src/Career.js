@@ -27,6 +27,13 @@ export default function Career() {
                     <div
                         key={index}
                         className={`career-item ${index === activeIndex ? 'active' : 'inactive'}`}
+                        onClick={() => {
+                            const itemElement = document.querySelectorAll('.career-item')[index];
+                            itemElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'center',
+                            })
+                        }}
                     >
                         <div className="career-date-bullet">
                             <p className="career-date">
